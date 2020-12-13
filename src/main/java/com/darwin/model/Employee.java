@@ -1,9 +1,10 @@
 package com.darwin.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
+import javax.validation.constraints.Size;
+
 
 @Entity
 @Table(name = "employees")
@@ -18,6 +19,7 @@ public class Employee {
     private String fullName;
 
     @NotBlank(message = "email is mandatory")
+    @Email
     @Column(name = "email",  nullable = false)
     private String email;
 
@@ -26,6 +28,7 @@ public class Employee {
     private String password;
 
     @NotBlank(message = " phoneNumber cannot be null")
+    @Size(min=10, max=10)
     @Column(name = "phone_number",  nullable = false)
     private String phoneNumber;
 
@@ -36,6 +39,25 @@ public class Employee {
     private String jobTitle;
 
     public Employee() {
+    }
+
+    public Employee(Integer id, String fullName, String email, String password, String phoneNumber, String department, String jobTitle) {
+        this.id = id;
+        this.fullName = fullName;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.department = department;
+        this.jobTitle = jobTitle;
+    }
+
+    public Employee(String fullName, String email, String password, String phoneNumber, String department, String jobTitle) {
+        this.fullName = fullName;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.department = department;
+        this.jobTitle = jobTitle;
     }
 
     public Integer getId() {

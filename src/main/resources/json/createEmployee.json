@@ -1,0 +1,8 @@
+{
+  "fullName" : "full name",
+  "email" :  "test@gmail.com",
+  "password"  : "password",
+  "phoneNumber" : "1234567890",
+  "department" :  "dept",
+  "jobTitle"  : "title"
+}
